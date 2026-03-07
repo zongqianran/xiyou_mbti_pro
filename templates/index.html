@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>西游MBTI测试</title>
+<style>
+body{
+    margin:0;
+    background-image:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb");
+    background-size:cover;
+    background-attachment:fixed;
+    font-family:"STKaiti",serif;
+}
+.container{
+    width:600px;
+    margin:80px auto;
+    background:rgba(255,255,255,0.9);
+    padding:40px;
+    border-radius:20px;
+}
+.question{
+    display:none;
+}
+.question.active{
+    display:block;
+}
+button{
+    margin:20px 10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:black;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>西游世界 MBTI 测试</h2>
+<form id="quizForm" action="/result" method="post">
+
+<!-- 1 E/I -->
+<div class="question">
+<p>石猴初见花果山群猴，众猴围观喧闹。若你在此情境，更可能：</p>
+<label><input type="radio" name="q1" value="E">主动加入交流，带头探索水帘洞</label><br>
+<label><input type="radio" name="q1" value="I">先在一旁观察，再决定是否参与</label>
+</div>
+
+<!-- 2 S/N -->
+<div class="question">
+<p>《西游记》写道：“山中奇石，嵯峨突兀。”若行至此地，你更注意：</p>
+<label><input type="radio" name="q2" value="S">山石、树木与路径等具体景象</label><br>
+<label><input type="radio" name="q2" value="N">此地可能隐藏的故事或象征意义</label>
+</div>
+
+<!-- 3 T/F -->
+<div class="question">
+<p>遇见被妖怪困住的村民，你更倾向：</p>
+<label><input type="radio" name="q3" value="T">先分析情况再决定如何行动</label><br>
+<label><input type="radio" name="q3" value="F">先安抚他们的情绪并提供帮助</label>
+</div>
+
+<!-- 4 J/P -->
+<div class="question">
+<p>西行途中需翻越高山，你更可能：</p>
+<label><input type="radio" name="q4" value="J">提前规划路线和时间</label><br>
+<label><input type="radio" name="q4" value="P">边走边看情况再决定</label>
+</div>
+
+<!-- 5 E/I -->
+<div class="question">
+<p>孙悟空学艺归来，群猴相迎。若是你：</p>
+<label><input type="radio" name="q5" value="E">喜欢与众人分享经历</label><br>
+<label><input type="radio" name="q5" value="I">更愿意私下讲给少数人听</label>
+</div>
+
+<!-- 6 S/N -->
+<div class="question">
+<p>“云横秦岭家何在，雪拥蓝关马不前。”行至雪山：</p>
+<label><input type="radio" name="q6" value="S">关注天气、道路与体力</label><br>
+<label><input type="radio" name="q6" value="N">联想到旅途的意义与未来</label>
+</div>
+
+<!-- 7 T/F -->
+<div class="question">
+<p>若同伴犯错，你更可能：</p>
+<label><input type="radio" name="q7" value="T">指出问题并提出解决方法</label><br>
+<label><input type="radio" name="q7" value="F">先顾及对方感受再讨论</label>
+</div>
+
+<!-- 8 J/P -->
+<div class="question">
+<p>旅途忽遇暴雨，你会：</p>
+<label><input type="radio" name="q8" value="J">迅速寻找计划中的避雨地点</label><br>
+<label><input type="radio" name="q8" value="P">随机找地方躲雨</label>
+</div>
+
+<!-- 9 -->
+<div class="question">
+<p>到达新城镇，你通常：</p>
+<label><input type="radio" name="q9" value="E">主动与当地人交谈</label><br>
+<label><input type="radio" name="q9" value="I">先自己探索环境</label>
+</div>
+
+<!-- 10 -->
+<div class="question">
+<p>看到寺庙壁画，你更：</p>
+<label><input type="radio" name="q10" value="S">观察画面细节</label><br>
+<label><input type="radio" name="q10" value="N">思考其中寓意</label>
+</div>
+
+<!-- 11 -->
+<div class="question">
+<p>面对困难，你更依赖：</p>
+<label><input type="radio" name="q11" value="T">理性分析</label><br>
+<label><input type="radio" name="q11" value="F">内心直觉</label>
+</div>
+
+<!-- 12 -->
+<div class="question">
+<p>完成任务时你：</p>
+<label><input type="radio" name="q12" value="J">喜欢按计划完成</label><br>
+<label><input type="radio" name="q12" value="P">根据情况调整</label>
+</div>
+
+<!-- 13 -->
+<div class="question">
+<p>夜宿荒山，你更可能：</p>
+<label><input type="radio" name="q13" value="E">与同伴聊天打发时间</label><br>
+<label><input type="radio" name="q13" value="I">安静休息或思考</label>
+</div>
+
+<!-- 14 -->
+<div class="question">
+<p>看到奇异法宝，你更：</p>
+<label><input type="radio" name="q14" value="S">研究它如何使用</label><br>
+<label><input type="radio" name="q14" value="N">想象它的来源</label>
+</div>
+
+<!-- 15 -->
+<div class="question">
+<p>讨论问题时你更：</p>
+<label><input type="radio" name="q15" value="T">强调逻辑</label><br>
+<label><input type="radio" name="q15" value="F">强调关系</label>
+</div>
+
+<!-- 16 -->
+<div class="question">
+<p>安排旅程时你：</p>
+<label><input type="radio" name="q16" value="J">提前准备</label><br>
+<label><input type="radio" name="q16" value="P">保持灵活</label>
+</div>
+
+<!-- 17 -->
+<div class="question">
+<p>遇到陌生队伍，你：</p>
+<label><input type="radio" name="q17" value="E">主动交谈</label><br>
+<label><input type="radio" name="q17" value="I">保持距离观察</label>
+</div>
+
+<!-- 18 -->
+<div class="question">
+<p>观察一片森林，你更注意：</p>
+<label><input type="radio" name="q18" value="S">具体动植物</label><br>
+<label><input type="radio" name="q18" value="N">整体环境氛围</label>
+</div>
+
+<!-- 19 -->
+<div class="question">
+<p>朋友求助时：</p>
+<label><input type="radio" name="q19" value="T">先找解决方案</label><br>
+<label><input type="radio" name="q19" value="F">先表达理解</label>
+</div>
+
+<!-- 20 -->
+<div class="question">
+<p>面对未知任务：</p>
+<label><input type="radio" name="q20" value="J">先制定步骤</label><br>
+<label><input type="radio" name="q20" value="P">直接开始尝试</label>
+</div>
+
+<!-- 21 -->
+<div class="question">
+<p>集体休息时：</p>
+<label><input type="radio" name="q21" value="E">参与聊天</label><br>
+<label><input type="radio" name="q21" value="I">自己待一会</label>
+</div>
+
+<!-- 22 -->
+<div class="question">
+<p>听故事时：</p>
+<label><input type="radio" name="q22" value="S">记住情节</label><br>
+<label><input type="radio" name="q22" value="N">思考寓意</label>
+</div>
+
+<!-- 23 -->
+<div class="question">
+<p>讨论计划：</p>
+<label><input type="radio" name="q23" value="T">重视效率</label><br>
+<label><input type="radio" name="q23" value="F">重视感受</label>
+</div>
+
+<!-- 24 -->
+<div class="question">
+<p>旅行安排：</p>
+<label><input type="radio" name="q24" value="J">提前规划</label><br>
+<label><input type="radio" name="q24" value="P">临时决定</label>
+</div>
+
+<!-- 25 -->
+<div class="question">
+<p>在集市：</p>
+<label><input type="radio" name="q25" value="E">和很多人交流</label><br>
+<label><input type="radio" name="q25" value="I">简单看看就离开</label>
+</div>
+
+<!-- 26 -->
+<div class="question">
+<p>看山川景色：</p>
+<label><input type="radio" name="q26" value="S">注意细节</label><br>
+<label><input type="radio" name="q26" value="N">联想故事</label>
+</div>
+
+<!-- 27 -->
+<div class="question">
+<p>处理矛盾：</p>
+<label><input type="radio" name="q27" value="T">讲道理</label><br>
+<label><input type="radio" name="q27" value="F">讲情面</label>
+</div>
+
+<!-- 28 -->
+<div class="question">
+<p>任务结束方式：</p>
+<label><input type="radio" name="q28" value="J">按计划收尾</label><br>
+<label><input type="radio" name="q28" value="P">顺其自然结束</label>
+</div>
+
+<div style="text-align:center;margin-top:30px;">
+
+<div>
+<button type="button" onclick="prev()">上一题</button>
+<button type="button" onclick="next()" id="nextBtn">下一题</button>
+<button type="submit" id="submitBtn" style="display:none;">提交</button>
+</div>
+
+<div id="progressText" style="margin-top:10px;font-size:16px;color:#555;">
+第 1 / 28 题
+</div>
+
+</div>
+
+</form>
+</div>
+
+<script>
+let current=0;
+const questions=document.querySelectorAll(".question");
+const nextBtn=document.getElementById("nextBtn");
+const submitBtn=document.getElementById("submitBtn");
+
+function show(){
+
+questions.forEach((q,i)=>q.classList.toggle("active",i===current));
+
+/* 上一题按钮 */
+document.querySelector("button").style.display = current===0 ? "none":"inline-block";
+
+/* 下一题 / 提交 */
+if(current===questions.length-1){
+nextBtn.style.display="none";
+submitBtn.style.display="inline-block";
+}else{
+nextBtn.style.display="inline-block";
+submitBtn.style.display="none";
+}
+
+/* 更新进度 */
+document.getElementById("progressText").innerText =
+"第 "+(current+1)+" / "+questions.length+" 题";
+}
+
+function next(){
+if(current<questions.length-1){
+current++;
+show();
+}
+}
+
+function prev(){
+if(current>0){
+current--;
+nextBtn.style.display="inline-block";
+submitBtn.style.display="none";
+show();
+}
+}
+
+show();
+</script>
+
+</body>
+</html>

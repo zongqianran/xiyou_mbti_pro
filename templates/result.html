@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试结果</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+    background-image:url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+    background-size:cover;
+    font-family:"STKaiti",serif;
+}
+.card{
+    width:700px;
+    margin:80px auto;
+    background:rgba(255,255,255,0.9);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+}
+img{
+    width:200px;
+    margin:20px;
+}
+canvas{
+    width:260px !important;
+    height:260px !important;
+    margin:auto;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>你的MBTI类型：{{ mbti }}</h2>
+
+<h3>{{ character.name }} · {{ character.mbti }}</h3>
+
+<img src="{{ url_for('static', filename=character.img) }}">
+
+<h4>人物简介</h4>
+<p>{{ character.desc }}</p>
+
+<h4>在西游团队中的角色</h4>
+<p>{{ character.role }}</p>
+
+<h4>MBTI人格分析</h4>
+    {% if easter_egg %}
+<div style="
+margin-top:25px;
+padding:18px;
+background:rgba(0,0,0,0.05);
+border-radius:12px;
+font-size:16px;
+line-height:1.6;
+color:#333;
+">
+✨ 彩蛋解读：{{ easter_egg }}
+</div>
+{% endif %}
+<p>{{ character.analysis }}</p>
+
+<canvas id="radarChart"></canvas>
+
+<script>
+new Chart(document.getElementById("radarChart"),{
+type:"radar",
+data:{
+labels:["E","S","T","J"],
+datasets:[{
+data:{{ radar_data }},
+backgroundColor:"rgba(0,0,0,0.15)",
+borderColor:"black",
+borderWidth:2,
+pointBackgroundColor:"black"
+}]
+},
+options:{
+plugins:{
+legend:{display:false}
+},
+scales:{
+r:{
+min:0,
+max:100,
+ticks:{
+stepSize:50,
+color:"#333",
+font:{size:14}
+},
+grid:{color:"#999"},
+angleLines:{color:"#999"},
+pointLabels:{
+color:"#000",
+font:{size:16}
+}
+}
+}
+}
+});
+</script>
