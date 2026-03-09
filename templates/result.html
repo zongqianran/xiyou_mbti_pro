@@ -33,10 +33,11 @@ canvas{
 <body>
 
 <div class="card">
-<h2>你的MBTI类型：{{ mbti }}</h2>
+<h2>你的西游人格原型</h2>
+<h3>{{ character.name }}</h3>
 
-<h3>{{ character.name }} · {{ character.mbti }}</h3>
-
+    <h4>哲学主题</h4>
+<p>{{ character.philosophy }}</p>
 <img src="{{ url_for('static', filename=character.img) }}">
 
 <h4>人物简介</h4>
@@ -45,7 +46,7 @@ canvas{
 <h4>在西游团队中的角色</h4>
 <p>{{ character.role }}</p>
 
-<h4>MBTI人格分析</h4>
+<h4>人物分析</h4>
     {% if easter_egg %}
 <div style="
 margin-top:25px;
@@ -100,3 +101,4 @@ font:{size:16}
 }
 });
 </script>
+<button onclick="window.location.href='/'">再测一次</button>
